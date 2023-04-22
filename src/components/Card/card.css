@@ -1,0 +1,22 @@
+.card-img-top {
+    height: 600px;
+}
+
+.card-body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.col-single {
+    flex: 0 0 33.33%;
+    padding: 0 15px;
+    margin-bottom: 30px;
+}
+
+.col-double {
+    flex: 0 0 33.33%;
+    padding: 0 15px;
+    margin-bottom: 30px;
+}
