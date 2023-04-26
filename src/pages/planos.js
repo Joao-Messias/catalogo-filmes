@@ -8,7 +8,6 @@ function Planos() {
             <Title
                 title={"Planos"}
                 text={"Veja abaixo os planos disponíveis:"} />
-            <h1 className='text-center'>Planos</h1>
             <Plano />
         </div>
     )
