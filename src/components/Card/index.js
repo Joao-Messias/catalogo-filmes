@@ -2,7 +2,7 @@ import "./card.css";
 import Comments from "../Comments/index";
 
 function Assistido({javisto}) {
-    return <p>{javisto ? "Assistido ✔" : "Não assistido"}</p>;
+    return <p>{javisto ? "Assistido ✔" : "Não assistido!"}</p>;
 }
 
 export default function Card({filmes}) {
