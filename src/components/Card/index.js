@@ -44,7 +44,7 @@ export default function Card({filmes}) {
                                         Assistir
                                     </button>
                                 )}
-                                <a href={`/detalhes/${filme.titulo}`}>
+                                <a href={`/detalhes/${filme.id}`}>
                                     <div className="btn btn-primary mt-2">Detalhes</div>
                                 </a>
                             </div>

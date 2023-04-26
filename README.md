@@ -1,7 +1,6 @@
 # Integrantes
 
-Gustavo Guedes
-João Messias
+João Pedro Messias e Gustavo Guedes
 
 # Getting Started with Create React App
 
