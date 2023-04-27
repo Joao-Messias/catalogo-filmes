@@ -21,7 +21,6 @@ function SearchBar({onSearch, onFiltroChange, filtro}) {
                         onChange={handleInputChange}
                     />
                 </div>
-                {/*TODO LOGICA DE FILTRAR POR SELECT*/}
                 <div className="col-md-2">
                     <select className="form-control" value={filtro} onChange={handleFiltroChange}>
                         <option value="titulo">Título</option>
@@ -33,11 +32,4 @@ function SearchBar({onSearch, onFiltroChange, filtro}) {
         </div>
     );
 }
-
-SearchBar.propTypes = {
-    onSearch: PropTypes.func.isRequired,
-    onFiltroChange: PropTypes.func.isRequired,
-    filtro: PropTypes.string.isRequired,
-};
-
 export default SearchBar;

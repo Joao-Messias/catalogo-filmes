@@ -9,13 +9,13 @@ export default function Watch(props) {
     };
 
     return (
-        <button className="btn btn-primary mt-5"
-             onClick={() => handleAssistir(props.titulo)}
+        <button className="btn btn-primary"
+                onClick={() => handleAssistir(props.titulo)}
         >
             {props.IsWatched ? (
-                <p>Assistir Novamente</p>
+                "Assistir Novamente"
             ) : (
-<               p>Assistir</p>
+                "Assistir"
             )}
 
         </button>

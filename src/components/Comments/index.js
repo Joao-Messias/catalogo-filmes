@@ -1,38 +1,32 @@
 const commentarios = [
     {
         "usuario": "Maria",
-        "comentario": "Velozes e Furiosos 9 é um ótimo filme de ação, com muita adrenalina e cenas impressionantes!",
-        "filme": "Velozes e Furiosos 9",
+        "comentario": "Ótimo filme, nunca tinha assistido, adorei!",
         "id": 85,
     },
     {
         "usuario": "João",
-        "comentario": "Viúva Negra é um filme muito divertido, com muita ação e uma ótima história de origem!",
-        "filme": "Viúva Negra",
+        "comentario": "Os filmes dos Vingadores são emocionantes e repletos de ação.",
         "id": 14,
     },
     {
         "usuario": "Ana",
-        "comentario": "Shang-Chi e a Lenda dos Dez Anéis é um filme incrível, com muita ação, efeitos visuais incríveis e um herói cativante!",
-        "filme": "Shang-Chi e a Lenda dos Dez Anéis",
+        "comentario": "Odeio o Thanos!!! Mas adorei o filme, sempre com muita emoção.",
         "id": 96,
     },
     {
         "usuario": "Pedro",
-        "comentario": "007: Sem Tempo Para Morrer é um filme de ação emocionante, com uma trama intrigante e muita adrenalina!",
-        "filme": "007: Sem Tempo Para Morrer",
+        "comentario": "Avengers: Endgame trouxe um desfecho épico para a saga!",
         "id": 78,
     },
     {
         "usuario": "Luiza",
-        "comentario": "O Esquadrão Suicida é um filme de ação bem-humorado e cheio de surpresas, vale a pena assistir!",
-        "filme": "O Esquadrão Suicida",
+        "comentario": "Foi uma surpresa agradável, com uma protagonista forte e inspiradora.",
         "id": 36,
     },
     {
         "usuario": "Matheus",
-        "comentario": "Mundo em Caos é um filme de ficção científica interessante, com uma história diferente e boas atuações!",
-        "filme": "Mundo em Caos",
+        "comentario": "Esse filme apresenta um universo mágico e fascinante.",
         "id": 39,
     }
 ];
