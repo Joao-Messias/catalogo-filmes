@@ -121,11 +121,14 @@ function Detalhes() {
                             ) : (
                                 <br></br>
                             )}
+                                <br></br>
+                              <Comments filmeId={filme}/>
                         </div>
                     )}
                 </div>
+
             )}
-            <Comments filmeId={filme}/>
+
         </div>
     )
 }
