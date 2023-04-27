@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import Swal from 'sweetalert2';
-
+import Title from "../components/Title";
 const RegisterPage = () => {
     // Define the state variables for form inputs
     const [name, setName] = useState("");
@@ -86,7 +86,13 @@ const RegisterPage = () => {
         });
     };
 
-    return (<div className="container">
+    return (
+    
+    <div className="container">
+        <Title
+                title={"Cadastro de Assinante"}
+                text="" />
+
         <div className="row">
             <div className="col-md-6">
                 <form onSubmit={handleSubmit}>

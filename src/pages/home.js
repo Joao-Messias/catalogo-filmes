@@ -18,10 +18,55 @@ function Home(props) {
     const [filmesFiltrados, setFilmesFiltrados] = useState([]);
     const filmesPorPagina = 3;
 
+    function compararAnoDecrescente(a, b) {
+        if (a.ano > b.ano) {
+          return -1;
+        }
+        if (a.ano < b.ano) {
+          return 1;
+        }
+        return 0;
+      }
+
+      function compararNotaDecrescente(a, b) {
+        if (a.nota > b.nota) {
+          return -1;
+        }
+        if (a.nota < b.nota) {
+          return 1;
+        }
+        return 0;
+      }
+
+      function compararAlfabetico(filmeA, filmeB) {
+            if (filmeA.titulo < filmeB.titulo) {
+              return -1;
+            }
+            if (filmeA.titulo > filmeB.titulo) {
+              return 1;
+            }
+            return 0;
+        }
+      
+
     const handlePesquisa = (valor) => {
         setPesquisa(valor);
         setPaginaAtual(1);
     };
+
+    const onFiltroChange = (valor) => {
+        setFiltro(valor);
+        if (valor.toString() == "ano") {
+            const filmesPorAno = filmes.sort(compararAnoDecrescente);
+            setFilmesFiltrados(filmesPorAno);
+        } else if (valor.toString() == "nota") {
+            const filmesPorNota = filmes.sort(compararNotaDecrescente);
+            setFilmesFiltrados(filmesPorNota);
+        } else if (valor.toString() == "titulo") {
+            const filmeAlfabetico = filmes.sort(compararAlfabetico);
+            setFilmesFiltrados(filmeAlfabetico);
+        }
+    }
 
     const indexUltimoFilme = paginaAtual * filmesPorPagina;
     const indexPrimeiroFilme = (paginaAtual - 1) * filmesPorPagina;
@@ -40,7 +85,7 @@ function Home(props) {
     return (
         <div>
             <Title title={'Catálogo de Filmes'} text={'Descubra seus filmes favoritos!'}/>
-            <SearchBar onSearch={handlePesquisa}/>
+            <SearchBar onSearch={handlePesquisa} onFiltroChange={onFiltroChange} filtro={filtro}/>
             <br/>
             <Card filmes={filmesPaginados} assistidoComponent={Assistido}/>
             <br/>

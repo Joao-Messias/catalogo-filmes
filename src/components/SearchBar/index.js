@@ -6,6 +6,9 @@ function SearchBar({onSearch, onFiltroChange, filtro}) {
         onSearch(event.target.value);
     };
 
+    const handleFiltroChange = (event) => {
+        onFiltroChange(event.target.value)
+    }
 
     return (
         <div className="container">
@@ -20,7 +23,7 @@ function SearchBar({onSearch, onFiltroChange, filtro}) {
                 </div>
                 {/*TODO LOGICA DE FILTRAR POR SELECT*/}
                 <div className="col-md-2">
-                    <select className="form-control" value={filtro}>
+                    <select className="form-control" value={filtro} onChange={handleFiltroChange}>
                         <option value="titulo">Título</option>
                         <option value="ano">Ano</option>
                         <option value="nota">Nota</option>

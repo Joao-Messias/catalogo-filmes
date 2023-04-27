@@ -1,5 +1,6 @@
 import "./card.css";
 import Comments from "../Comments/index";
+import Watch from "../Watch/index";
 
 function Assistido({javisto}) {
     return <p>{javisto ? "Assistido ✔" : "Não assistido!"}</p>;
@@ -30,26 +31,13 @@ export default function Card({filmes}) {
                                 <p className="card-text">{filme.descricao}</p>
                                 <p className="card-text">Nota: {filme.nota}</p>
                                 <Assistido javisto={filme.assistido}/>
-                                {filme.assistido ? (
-                                    <button className="btn btn-primary"
-                                            onClick={() => handleAssistir(filme.titulo)}
-                                    >
-                                        Assistir Novamente
-                                    </button>
-                                ) : (
-                                    <button
-                                        className="btn btn-primary"
-                                        onClick={() => handleAssistir(filme.titulo)}
-                                    >
-                                        Assistir
-                                    </button>
-                                )}
+                                <Watch IsWatched = {filme.assistido} titulo = {filme.titulo}/>
+
                                 <a href={`/detalhes/${filme.id}`}>
                                     <div className="btn btn-primary mt-2">Detalhes</div>
                                 </a>
                             </div>
                         </div>
-                        <Comments filme={filme.titulo}/>
                     </div>
                 ))}
             </div>

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Title from '../components/Title/index';
-
+import Watch from '../components/Watch';
+import Comments from '../components/Comments/index';
 function Assistido({ javisto }) {
     if (javisto) {
         return "✔";
@@ -12,7 +13,9 @@ function Assistido({ javisto }) {
 
 function Detalhes() {
     const { filme } = useParams();
-    const [info, setInfo] = useState();
+    const [info, setInfo] = useState([]);
+    const [nota, setNota] = useState(0);
+
     const [hasError, setError] = useState(null);
     const [loading, setLoading] = useState(false);
 
@@ -35,6 +38,31 @@ function Detalhes() {
                 setLoading(false);
             });
     }, []);
+
+    useEffect(() => {
+
+        if (info == undefined || info.lenght == 0) {
+            return;
+        }
+
+        fetch('https://my-json-server.typicode.com/marycamila184/movies/movies')
+        .then((response) => {
+            if (response.ok) {
+               return response.json();
+            } else {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+        }).then((filmes) => {
+            return filmes.find(f => f.id.toString() === filme);
+        }).then((filme) => {
+
+            if (filme.length == 0) {
+                return false;
+            } else {
+                setNota(filme.nota);
+            }
+        }).catch((error) => console.log(error))
+    }, [info]);
 
     return (
         <div>
@@ -72,12 +100,18 @@ function Detalhes() {
                                                         <p className='lead mb-2'>
                                                             <span className='fw-semibold'>Ano:</span> {info.ano}
                                                         </p>
+
+                                                        <p className='lead mb-4'>
+                                                            <span className='fw-semibold'>Nota: </span> {nota ? (
+                                                                <span>{nota}</span>
+                                                            ) : (
+                                                                <br></br>
+                                                            )}
+                                                        </p>
                                                         <p className='lead mb-4'>
                                                             <span className='fw-semibold'>Sinopse:</span> {info.sinopse}
                                                         </p>
-                                                        <p className='lead mb-4'>
-                                                            <span className='fw-semibold'>Assistido:</span> <Assistido javisto={info.assistido} />
-                                                        </p>
+                                                        <Watch isWatch={info.assistido} titulo = {info.titulo}/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -89,9 +123,9 @@ function Detalhes() {
                             )}
                         </div>
                     )}
-
                 </div>
             )}
+            <Comments filmeId={filme}/>
         </div>
     )
 }

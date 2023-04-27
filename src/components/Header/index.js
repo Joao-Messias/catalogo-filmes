@@ -1,13 +1,23 @@
 import "./header.css";
-import {Link} from 'react-router-dom';
+import {Route, Routes, useLocation,Link} from 'react-router-dom';
 import {useState, useEffect, useLayoutEffect} from 'react';
 
 export default function Header() {
-    const [showCadastroButton, setShowCadastroButton] = useState(true);
+    const location = useLocation();
+    const [isCadastro, setCadastro] = useState(false);
 
-    useLayoutEffect(() => {
-        setShowCadastroButton(window.location.pathname !== "/cadastro");
-    }, [window.location.pathname]);
+    useEffect(() => {
+        if (location.pathname.toString() == "/cadastro") {
+            setCadastro(true);
+        } else {
+
+            if (!isCadastro) {
+                return;
+            }
+
+            setCadastro(false);
+        }
+    })
 
     return (
         <div className="container">
@@ -24,8 +34,12 @@ export default function Header() {
                 </ul>
 
                 <div className="col-md-3 text-end">
-                    <button type="button" className="btn btn-outline-primary me-2">Login</button>
-                    {showCadastroButton && <Link className="btn btn-primary" to='/cadastro'>Cadastrar </Link>}
+                    {isCadastro ? ( 
+                       <br></br>
+                    ) : (
+                        <Link className="btn btn-primary" to='/cadastro'>Cadastrar </Link>
+                    )}
+
                 </div>
 
             </header>
